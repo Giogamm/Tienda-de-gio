@@ -1,0 +1,425 @@
+* {
+  display: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.header {
+  padding: 30px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #403f3f;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h2 {
+  font-size: 2em;
+  margin-right: 80px;
+  text-align: center;
+  user-select: none;
+}
+
+.producto-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .producto-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header{
+    font-size: small;
+    padding: 2px;
+  }
+
+  .header h2 {
+    margin-left: 0px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+
+.producto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 320px;
+}
+
+.producto:hover {
+  transform: translateY(-10px);
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.producto-nombre {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.producto-descripcion {
+  font-size: 1em;
+  color: #666;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.producto-precio {
+  font-size: 1.4em;
+  color: #00a6a6;
+  margin: 10px 0;
+}
+
+.producto-detalles {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #00a6a6;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.producto-detalles:hover {
+  background-color: #059d9d;
+}
+
+.buscador {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.logo-menu{
+ cursor: pointer;
+}
+
+.logo-carrito{
+  cursor: pointer;
+}
+
+.section-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#form-buscador {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#buscador {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+#buscador:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.2);
+  color: #000;
+}
+
+#buscador::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+#buscador:hover {
+  border-color: #ccc;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.producto-imagen {
+  width: 40%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -500px; 
+  width: 300px;
+  height: 100%;
+  background-color: #403f3f;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1;
+  transition: left 0.5s ease-in-out;
+}
+
+.close-sidebar{
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.sidebar.visible {
+  left: 0; 
+}
+
+.sidebar-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sidebar h2{
+  text-align: center;
+  border-bottom: 2px solid #00a6a6;
+}
+
+ ul {
+  list-style: none;
+
+ }
+
+ ul li {
+  margin: 20px;
+ }
+
+ ul li a{
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+ }
+
+ ul li a:hover{
+  color: #00a6a6;
+  transition: all 0.3s ease-in-out;
+ }
+
+ ul li a::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: #f5eeee;
+  transition: width 0.3s ease-in-out;
+}
+
+ul li a:hover::after{
+  width: 100%;
+  
+}
+
+.btn-delete-prod{
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-delete-prod:hover{
+  background-color: #8e1010;
+}
+
+.btn-add-prod,
+.btn-add-cart,
+.btn-delete-prod {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-add-cart {
+    background-color: #2196F3;
+}
+
+.btn-delete-prod {
+    background-color: #F44336;
+}
+
+.btn-add-prod:hover,
+.btn-add-cart:hover,
+.btn-delete-prod:hover {
+    opacity: 0.8;
+}
+
+/* Estilo para el modal */
+#formularioProducto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Asegura que el modal esté sobre otros elementos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+ display: none;
+}
+
+
+#formularioProducto .modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#formularioProducto h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#formularioProducto .btn-close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+#formularioProducto .btn-close-modal:hover {
+  color: #e74c3c;
+}
+
+/* Estilo para los campos de texto */
+#formularioProducto .input-nombre-producto,
+#formularioProducto .input-precio-producto,
+#formularioProducto .input-imagen-producto {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+  background-color: #f9f9f9;
+}
+
+/* Estilo para el campo de texto 'Nombre del producto' */
+#formularioProducto .input-nombre-producto {
+  background-color: #f9f9f9;
+}
+
+/* Estilo para el campo de 'Precio' */
+#formularioProducto .input-precio-producto {
+  background-color: #f9f9f9;
+}
+
+/* Estilo para el campo de 'Imagen' */
+#formularioProducto .input-imagen-producto {
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+/* Botón de guardar producto */
+#formularioProducto .btn-guardar-producto {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 90%;
+  transition: background-color 0.3s ease;
+}
+
+#formularioProducto .btn-guardar-producto:hover {
+  background-color: #2980b9;
+}
+
+
+/* ? Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}

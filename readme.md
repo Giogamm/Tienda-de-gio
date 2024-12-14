@@ -1,6 +1,6 @@
 # Cosas que faltan
-
-## lista de cosas que faltan
+ 
+ **Autor:** Giovany Galeana
 
 - [x] añadir al carrito
 - [ ] eliminar cosas del carrito
